@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
-public class MainTest_SerkanOzsahin extends BaseDriver {
+public class SerkanOzsahin extends BaseDriver {
 
     @Test
     public void LoginTestPositive() {
