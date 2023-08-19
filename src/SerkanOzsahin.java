@@ -78,10 +78,10 @@ public class SerkanOzsahin extends BaseDriver {
     }
 
     @Test
-    public void LoginTestNegative() {
+    public void LoginTestNegative1() {
 
-        String eMail = "Studyyytecho@gmail.com";
-        String password = "123AsdminiqqQQ";
+        String eMail = "studyyytecho123@gmail.com";
+        String password = "123asdminiqqQQ123";
         String hataliSifre = "Şifre doğru değil";
 
         driver.get("https://www.akakce.com/");
@@ -109,9 +109,89 @@ public class SerkanOzsahin extends BaseDriver {
 
         Assert.assertTrue(error.getText().contains(hataliSifre));
 
-        System.out.println("\u001B[94mLoginTestNegative = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre yanlış girildi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNegative = \u001B[0m" + "\u001B[32m" + "Ekrana hatalı şifre uyarısı geldi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNegative = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre yanlış girildi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Ekrana hatalı şifre uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
+
+        WaitAndQuit();
+    }
+
+    @Test
+    public void LoginTestNegative2() {
+
+        String eMail = "studyyytecho@gmail.com";
+        String password = "123asdminiqqQQ123";
+        String hataliSifre = "Şifre doğru değil";
+
+        driver.get("https://www.akakce.com/");
+        MyFunc.Wait(1);
+
+        WebElement logInBtn = driver.findElement(By.xpath("(//a[text()='Giriş Yap'])[1]"));
+        logInBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement eMailLogIn = driver.findElement(By.xpath("(//input[@type='email'])[2]"));
+        eMailLogIn.sendKeys(eMail);
+        MyFunc.Wait(1);
+
+        WebElement passwordLogIn = driver.findElement(By.xpath("(//input[@type='password'])[1]"));
+        passwordLogIn.sendKeys(password);
+        MyFunc.Wait(1);
+
+        WebElement submitBtn = driver.findElement(By.xpath("//input[@type='submit' and @value='Giriş yap']"));
+        submitBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement error = driver.findElement(By.xpath("//p[text()='Şifre doğru değil. Lütfen kontrol edip yeniden deneyin.']"));
+        error.getText();
+        MyFunc.Wait(1);
+
+        Assert.assertTrue(error.getText().contains(hataliSifre));
+
+        System.out.println("\u001B[94mLoginTestNegative2 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı doğru, şifre yanlış girildi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative2 = \u001B[0m" + "\u001B[32m" + "Ekrana hatalı şifre uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative2 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
+
+        WaitAndQuit();
+    }
+
+    @Test
+    public void LoginTestNegative3() {
+
+        String eMail = "studyyytecho123@gmail.com";
+        String password = "123asdminiqqQQ";
+        String hataliId = "Böyle bir kullanıcı yok.";
+
+        driver.get("https://www.akakce.com/");
+        MyFunc.Wait(1);
+
+        WebElement logInBtn = driver.findElement(By.xpath("(//a[text()='Giriş Yap'])[1]"));
+        logInBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement eMailLogIn = driver.findElement(By.xpath("(//input[@type='email'])[2]"));
+        eMailLogIn.sendKeys(eMail);
+        MyFunc.Wait(1);
+
+        WebElement passwordLogIn = driver.findElement(By.xpath("(//input[@type='password'])[1]"));
+        passwordLogIn.sendKeys(password);
+        MyFunc.Wait(1);
+
+        WebElement submitBtn = driver.findElement(By.xpath("//input[@type='submit' and @value='Giriş yap']"));
+        submitBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement error = driver.findElement(By.xpath("//p[text()='Böyle bir kullanıcı yok.']"));
+        error.getText();
+        MyFunc.Wait(1);
+
+        Assert.assertTrue(error.getText().contains(hataliId));
+
+        System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı yanlış, şifre doğru girildi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Ekrana Böyle bir kullanıcı yok yazısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
