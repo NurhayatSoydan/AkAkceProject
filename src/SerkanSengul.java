@@ -15,37 +15,37 @@ public class SerkanSengul extends BaseDriver {
         HesapAc.click();
         MyFunc.Wait(1);
 
-        WebElement Name = driver.findElement(By.cssSelector("[id='rnufn']"));
+        WebElement Name = driver.findElement(By.xpath("(//*[@type='text'])[1]"));
         Name.sendKeys("Serkan");
         MyFunc.Wait(1);
 
-        WebElement surname = driver.findElement(By.cssSelector("[id='rnufs']"));
+        WebElement surname = driver.findElement(By.xpath("(//*[@type='text'])[2]"));
         surname.sendKeys("Uza");
         MyFunc.Wait(1);
 
-        WebElement email = driver.findElement(By.cssSelector("[id='rnufe1']"));
-        email.sendKeys("TechnoStudyTeam__3_@gmail.com");
+        WebElement email = driver.findElement(By.xpath("(//*[@type='email'])[3]"));
+        email.sendKeys("TechnoStudyTeam__32_@gmail.com");
         MyFunc.Wait(1);
 
-        WebElement againEmail = driver.findElement(By.cssSelector("[id='rnufe2']"));
-        againEmail.sendKeys("TechnoStudyTeam__3_@gmail.com");
+        WebElement againEmail = driver.findElement(By.xpath("(//*[@type='email'])[4]"));
+        againEmail.sendKeys("TechnoStudyTeam__32_@gmail.com");
         MyFunc.Wait(1);
 
-        WebElement password = driver.findElement(By.cssSelector("[id='rnufp1']"));
+        WebElement password = driver.findElement(By.xpath("(//*[@class='frm_v8'])[8]//*"));
         password.sendKeys("KOBE21tmac");
         MyFunc.Wait(1);
 
-        WebElement againpassoword = driver.findElement(By.cssSelector("[id='rnufp2']"));
+        WebElement againpassoword = driver.findElement(By.xpath("(//*[@type='password'])[3]"));
         againpassoword.sendKeys("KOBE21tmac");
         MyFunc.Wait(1);
 
-        WebElement radiobutton = driver.findElement(By.cssSelector("[id='rngf']"));
+        WebElement radiobutton = driver.findElement(By.xpath("(//*[@onclick='changeGenderChoice()'])[1]"));
         radiobutton.click();
         MyFunc.Wait(1);
 
-        WebElement Webday = driver.findElement(By.cssSelector("[id='bd']"));
-        WebElement WebMonth = driver.findElement(By.cssSelector("[id='bm']"));
-        WebElement WebYear = driver.findElement(By.cssSelector("[id='by']"));
+        WebElement Webday = driver.findElement(By.xpath("(//*[@class='frm_v8 inl_v8']/*)[1]"));
+        WebElement WebMonth = driver.findElement(By.xpath("(//*[@class='frm_v8 inl_v8']/*)[2]"));
+        WebElement WebYear = driver.findElement(By.xpath("(//*[@class='frm_v8 inl_v8']/*)[3]"));
         MyFunc.Wait(1);
         Select day = new Select(Webday);
         Select Month = new Select(WebMonth);
@@ -56,15 +56,15 @@ public class SerkanSengul extends BaseDriver {
         Year.selectByVisibleText("1990");
         MyFunc.Wait(1);
 
-        WebElement btn = driver.findElement(By.cssSelector("[id='rnufpca']"));
+        WebElement btn = driver.findElement(By.xpath("(//*[@type='checkbox'])[2]"));
         btn.click();
         MyFunc.Wait(1);
 
-        WebElement btn2 = driver.findElement(By.cssSelector("[id='rnufnee']"));
+        WebElement btn2 = driver.findElement(By.xpath("(//*[@type='checkbox'])[3]"));
         btn2.click();
         MyFunc.Wait(1);
 
-        WebElement Confim = driver.findElement(By.cssSelector("[id='rfb']"));
+        WebElement Confim = driver.findElement(By.xpath("(//*[@type='submit'])[3]"));
         Confim.click();
         MyFunc.Wait(1);
 
@@ -80,7 +80,7 @@ public class SerkanSengul extends BaseDriver {
         personeldetails.click();
         MyFunc.Wait(1);
 
-        WebElement phonenumber= driver.findElement(By.cssSelector("[id='umdcp']"));
+        WebElement phonenumber= driver.findElement(By.xpath("(//*[@type='text'])[4]"));
         phonenumber.sendKeys("5555922507");
         MyFunc.Wait(1);
 
