@@ -54,7 +54,7 @@ public class SerkanOzsahin extends BaseDriver {
         currentEmail.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue(currentEmail.getText().contains(eMail));
+        Assert.assertTrue("Current email ile, girilen email uyumlu değil. Test FAILED", currentEmail.getText().contains(eMail));
 
         WebElement myProfile2 = driver.findElement(By.xpath("//a[@title='Hesabım']"));
         MyFunc.Wait(1);
@@ -107,7 +107,7 @@ public class SerkanOzsahin extends BaseDriver {
         error.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue(error.getText().contains(hataliSifre));
+        Assert.assertTrue("Kullanıcı adı ve şifre yanlış girilmesine rağmen sisteme giriş yapıldı. Test FAILED", error.getText().contains(hataliSifre));
 
         System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre yanlış girildi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Ekrana hatalı şifre uyarısı geldi." + "\u001B[0m");
@@ -147,7 +147,7 @@ public class SerkanOzsahin extends BaseDriver {
         error.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue(error.getText().contains(hataliSifre));
+        Assert.assertTrue("Kullanıcı adı doğru, şifre yanlış girilmesine rağmen sisteme giriş yapıldı. Test FAILED", error.getText().contains(hataliSifre));
 
         System.out.println("\u001B[94mLoginTestNegative2 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı doğru, şifre yanlış girildi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNegative2 = \u001B[0m" + "\u001B[32m" + "Ekrana hatalı şifre uyarısı geldi." + "\u001B[0m");
@@ -187,10 +187,10 @@ public class SerkanOzsahin extends BaseDriver {
         error.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue(error.getText().contains(hataliId));
+        Assert.assertTrue("Kullanıcı adı yanlış, şifre doğru girilmesine rağmen sisteme giriş yapıldı. Test FAILED", error.getText().contains(hataliId));
 
         System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı yanlış, şifre doğru girildi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Ekrana Böyle bir kullanıcı yok yazısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Ekrana böyle bir kullanıcı yok yazısı geldi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
@@ -227,7 +227,7 @@ public class SerkanOzsahin extends BaseDriver {
         error2.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue(error2.getText().contains(bosEmail));
+        Assert.assertTrue("Kullanıcı adı ve şifre boş bırakılmasına rağmen sisteme giriş yapıldı. Test FAILED", error2.getText().contains(bosEmail));
 
         System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre boş bırakıldı." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
