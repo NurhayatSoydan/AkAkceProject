@@ -19,15 +19,15 @@ public class nurhayat extends BaseDriver {
         WebElement giris = driver.findElement(By.xpath("//*[@href='/akakcem/giris/']"));
         giris.click();
         MyFunc.Wait(2);
-        WebElement mail = driver.findElement(By.xpath("//*[@id='life']"));
+        WebElement mail = driver.findElement(By.xpath("(//*[@type='email'])[2]"));
         mail.sendKeys(kAdi);
         MyFunc.Wait(2);
 
-        WebElement sifre = driver.findElement(By.xpath("//*[@id='lifp']"));
+        WebElement sifre = driver.findElement(By.xpath("(//input[@type='password'])[1]"));
         sifre.sendKeys(sKey);
         MyFunc.Wait(2);
 
-        WebElement gir = driver.findElement(By.xpath("//*[@id='lfb']"));
+        WebElement gir = driver.findElement(By.xpath("(//*[@type='submit'])[2]"));
         gir.click();
         MyFunc.Wait(2);
 
