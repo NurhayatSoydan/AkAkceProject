@@ -2,7 +2,7 @@ package Utility;
 
 public class MyFunc {
 
-    public static void Wait(int sn) { // MyFunc.Wait(3);
+    public static void Wait(int sn) {
 
         try {
             Thread.sleep(sn * 1000l);

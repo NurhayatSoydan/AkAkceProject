@@ -56,9 +56,23 @@ public class SerkanOzsahin extends BaseDriver {
 
         Assert.assertTrue(currentEmail.getText().contains(eMail));
 
-        System.out.println("LoginTestPositive = Current email ile girilen email uyumlu.");
-        System.out.println("LoginTestPositive = Sistem'e başarılı bir şekilde giriş yapıldı.");
-        System.out.println("Test PASSED");
+        WebElement myProfile2 = driver.findElement(By.xpath("//a[@title='Hesabım']"));
+        MyFunc.Wait(1);
+
+        Actions actionA = new Actions(driver);
+        Action action2 = actionA.moveToElement(myProfile2).build();
+        action2.perform();
+        MyFunc.Wait(1);
+
+        WebElement myAcc2 = driver.findElement(By.xpath("//a[text()='Çık']"));
+        myAcc2.click();
+        MyFunc.Wait(1);
+
+        System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre doğru girildi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Current email ile, girilen email uyumlu." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Sisteme başarılı bir şekilde giriş yapıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Sistemden başarılı bir şekilde çıkış yapıldı." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
     }
@@ -95,9 +109,10 @@ public class SerkanOzsahin extends BaseDriver {
 
         Assert.assertTrue(error.getText().contains(hataliSifre));
 
-        System.out.println("Ekrana hatalı şifre uyarısı geldi.");
-        System.out.println("LoginTestNegative = Sisteme giriş yapılamadı.");
-        System.out.println("Test PASSED");
+        System.out.println("\u001B[94mLoginTestNegative = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre yanlış girildi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative = \u001B[0m" + "\u001B[32m" + "Ekrana hatalı şifre uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
     }
@@ -107,6 +122,7 @@ public class SerkanOzsahin extends BaseDriver {
 
         String eMail = "";
         String password = "";
+        String bosEmail = "Lütfen e-posta adresinizi yazın.";
 
         driver.get("https://www.akakce.com/");
         MyFunc.Wait(1);
@@ -125,8 +141,18 @@ public class SerkanOzsahin extends BaseDriver {
 
         WebElement submitBtn = driver.findElement(By.xpath("//input[@type='submit' and @value='Giriş yap']"));
         submitBtn.click();
+        MyFunc.Wait(1);
 
-        System.out.println("LoginTestNull = Sisteme giriş yapılamadı.");
+        WebElement error2 = driver.findElement(By.xpath("//p[text()='Lütfen e-posta adresinizi yazın.']"));
+        error2.getText();
+        MyFunc.Wait(1);
+
+        Assert.assertTrue(error2.getText().contains(bosEmail));
+
+        System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre boş bırakıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
     }
