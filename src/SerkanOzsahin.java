@@ -198,7 +198,7 @@ public class SerkanOzsahin extends BaseDriver {
     }
 
     @Test
-    public void LoginTestNull() {
+    public void LoginTestNull1() {
 
         String eMail = "";
         String password = "";
@@ -229,9 +229,49 @@ public class SerkanOzsahin extends BaseDriver {
 
         Assert.assertTrue("Kullanıcı adı ve şifre boş bırakılmasına rağmen sisteme giriş yapıldı. Test FAILED", error2.getText().contains(bosEmail));
 
-        System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre boş bırakıldı." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNull = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull1 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre boş bırakıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull1 = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull1 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
+
+        WaitAndQuit();
+    }
+
+    @Test
+    public void LoginTestNull2() {
+
+        String eMail = "";
+        String password = "123asdminiqqQQ";
+        String bosEmail = "Lütfen e-posta adresinizi yazın.";
+
+        driver.get("https://www.akakce.com/");
+        MyFunc.Wait(1);
+
+        WebElement logInBtn = driver.findElement(By.xpath("(//a[text()='Giriş Yap'])[1]"));
+        logInBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement eMailLogIn = driver.findElement(By.xpath("(//input[@type='email'])[2]"));
+        eMailLogIn.sendKeys(eMail);
+        MyFunc.Wait(1);
+
+        WebElement passwordLogIn = driver.findElement(By.xpath("(//input[@type='password'])[1]"));
+        passwordLogIn.sendKeys(password);
+        MyFunc.Wait(1);
+
+        WebElement submitBtn = driver.findElement(By.xpath("//input[@type='submit' and @value='Giriş yap']"));
+        submitBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement error2 = driver.findElement(By.xpath("//p[text()='Lütfen e-posta adresinizi yazın.']"));
+        error2.getText();
+        MyFunc.Wait(1);
+
+        Assert.assertTrue("Kullanıcı adı boş bırakılmasına rağmen sisteme giriş yapıldı. Test FAILED", error2.getText().contains(bosEmail));
+
+        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı boş bırakıldı, şifre doğru girildi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
