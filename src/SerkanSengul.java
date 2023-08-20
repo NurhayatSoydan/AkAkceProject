@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SerkanSengul extends BaseDriver {
     @Test
-    public void HesapDogrulamaKontrol(){
+    public void HesapDogrulamaKontrol() {
         driver.get("https://www.akakce.com/");
 
         WebElement HesapAc = driver.findElement(By.xpath("//div[@id='H_rl_v8']//a"));
@@ -72,28 +72,104 @@ public class SerkanSengul extends BaseDriver {
         checkhesap1.click();
 
         WebElement checkhesap = driver.findElement(By.cssSelector("[rel='nofollow'][href='/akakcem/']"));
-        Assert.assertTrue("test başarısız oldu",checkhesap.getText().contains("Serkan"));
+        Assert.assertTrue("test başarısız oldu", checkhesap.getText().contains("Serkan"));
         System.out.println("Test başarılı bir şekilde gerçekleşti");
         MyFunc.Wait(1);
 
-        WebElement personeldetails= driver.findElement(By.cssSelector("[href='/akakcem/kullanici-bilgilerim/bilgi-guncelle/']"));
+        WebElement personeldetails = driver.findElement(By.cssSelector("[href='/akakcem/kullanici-bilgilerim/bilgi-guncelle/']"));
         personeldetails.click();
         MyFunc.Wait(1);
 
-        WebElement phonenumber= driver.findElement(By.xpath("(//*[@type='text'])[4]"));
+        WebElement phonenumber = driver.findElement(By.xpath("(//*[@type='text'])[4]"));
         phonenumber.sendKeys("5555922507");
         MyFunc.Wait(1);
 
-        WebElement uptadebutton= driver.findElement(By.cssSelector("[type='submit']"));
+        WebElement uptadebutton = driver.findElement(By.cssSelector("[type='submit']"));
         uptadebutton.click();
         MyFunc.Wait(1);
 
-        WebElement button2= driver.findElement(By.xpath("//button[@class='bt_v8 line_v8']/b"));
+        WebElement button2 = driver.findElement(By.xpath("//button[@class='bt_v8 line_v8']/b"));
         button2.click();
 
+        WaitAndQuit();
 
+    }
+
+    @Test
+    public void SiparisListe() {
+        driver.get("https://www.akakce.com/");
+        WebElement Girisyap = driver.findElement(By.xpath("//*[@href='/akakcem/giris/'][1]"));
+        Girisyap.click();
+        MyFunc.Wait(1);
+
+        WebElement Email = driver.findElement(By.xpath("(//*[@type='email'])[2]"));
+        Email.sendKeys("TechnoStudyTeam_3@gmail.com");
+        MyFunc.Wait(1);
+
+        WebElement Password = driver.findElement(By.xpath("(//*[@type='password'])[1]"));
+        Password.sendKeys("KOBE21tmac");
+        MyFunc.Wait(1);
+
+        WebElement girisyap2 = driver.findElement(By.xpath("(//*[@type='submit'])[2]"));
+        girisyap2.click();
+        MyFunc.Wait(1);
+
+        WebElement UsernameClick = driver.findElement(By.cssSelector("[rel='nofollow'][href='/akakcem/']"));
+        UsernameClick.click();
+        MyFunc.Wait(1);
+
+        WebElement MyShoplists = driver.findElement(By.cssSelector("[href='/akakcem/siparislerim/']"));
+        MyShoplists.click();
+
+        WebElement result = driver.findElement(By.cssSelector("[class='no-record']"));
+        Assert.assertTrue(result.getText().contains("Kayıtlı siparişiniz bulunmuyor."));
+        System.out.println("sepetiniz boş yazısı gözüküyor");
+        driver.navigate().back();
+        MyFunc.Wait(1);
+
+        WebElement Caydanlik = driver.findElement(By.cssSelector("[alt='Arçelik CM 9922 Eternity 1650 W Çelik Çay Makinesi']"));
+        Caydanlik.click();
+        MyFunc.Wait(1);
+
+        WebElement followitem = driver.findElement(By.xpath("(//*[@class='ufo_v8'])[1]"));
+        followitem.click();
+        MyFunc.Wait(1);
+
+        WebElement followbutton = driver.findElement(By.xpath("(//*[@rel='nofollow'])[7]"));
+        followbutton.click();
+        MyFunc.Wait(1);
+
+        WebElement order1 = driver.findElement(By.cssSelector("[title='Arçelik CM 9922 Eternity 1650 W Çelik Çay Makinesi']"));
+        Assert.assertTrue(order1.getText().contains("Arçelik"));
+        System.out.println("Takip ettiklerin içersinde ürün gözüküyor");
+
+        driver.navigate().back();
+        MyFunc.Wait(1);
+
+        WebElement unfollow = driver.findElement(By.xpath("(//*[@class='ufo_v8 a'])[1]"));
+        unfollow.click();
+        MyFunc.Wait(1);
+
+        WebElement unfollowclick = driver.findElement(By.xpath("(//*[@class='bt_v8'])[9]"));
+        unfollowclick.click();
+
+        MyFunc.Wait(1);
+        WebElement liste = driver.findElement(By.xpath("(//*[@rel='nofollow'])[2]"));
+        liste.click();
+
+        MyFunc.Wait(1);
+        WebElement listefollow = driver.findElement(By.xpath("(//*[@href='/akakcem/takip-listem/'])[1]"));
+        listefollow.click();
+
+        MyFunc.Wait(1);
+        WebElement read = driver.findElement(By.xpath("//*[@class='empty-follow-list']/*"));
+        MyFunc.Wait(1);
+
+        Assert.assertTrue(read.getText().contains("Takip"));
+        System.out.println("Liste tekrardan boş olarak gözüküyor");
 
         WaitAndQuit();
+
 
     }
 }
