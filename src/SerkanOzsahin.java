@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class SerkanOzsahin extends BaseDriver {
 
-    // Oturum Açma ve Mesaj Kutusu Kontrolü Test Method'ları.
+    // Oturum Açma ve Mesaj Kutusu Kontrolü Test Method'ları :
 
     // Oturum Açma :
 
