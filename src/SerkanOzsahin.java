@@ -82,7 +82,7 @@ public class SerkanOzsahin extends BaseDriver {
 
         String eMail = "studyyytecho123@gmail.com";
         String password = "123asdminiqqQQ123";
-        String hataliSifre = "Şifre doğru değil";
+        String hataliId = "Böyle bir kullanıcı yok.";
 
         driver.get("https://www.akakce.com/");
         MyFunc.Wait(1);
@@ -103,14 +103,14 @@ public class SerkanOzsahin extends BaseDriver {
         submitBtn.click();
         MyFunc.Wait(1);
 
-        WebElement error = driver.findElement(By.xpath("//p[text()='Şifre doğru değil. Lütfen kontrol edip yeniden deneyin.']"));
+        WebElement error = driver.findElement(By.xpath("//p[text()='Böyle bir kullanıcı yok.']"));
         error.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue("Kullanıcı adı ve şifre yanlış girilmesine rağmen sisteme giriş yapıldı. Test FAILED", error.getText().contains(hataliSifre));
+        Assert.assertTrue("Kullanıcı adı ve şifre yanlış girilmesine rağmen sisteme giriş yapıldı. Test FAILED", error.getText().contains(hataliId));
 
         System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre yanlış girildi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Ekrana hatalı şifre uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Ekrana böyle bir kullanıcı yok uyarısı geldi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNegative1 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
