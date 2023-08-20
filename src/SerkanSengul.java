@@ -169,7 +169,7 @@ public class SerkanSengul extends BaseDriver {
         System.out.println("Liste tekrardan boş olarak gözüküyor");
 
         WaitAndQuit();
-
+//bitmiş hali
 
     }
 }
