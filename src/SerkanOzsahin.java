@@ -9,6 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 
 public class SerkanOzsahin extends BaseDriver {
 
+    // Oturum Açma Test Method'ları.
+
     @Test
     public void LoginTestPositive() {
 
