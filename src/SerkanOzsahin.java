@@ -11,7 +11,7 @@ public class SerkanOzsahin extends BaseDriver {
 
     // Oturum Açma ve Mesaj Kutusu Kontrolü Test Method'ları.
 
-    // Oturum Açma
+    // Oturum Açma :
 
     @Test
     public void LoginTestPositive() {
@@ -321,10 +321,10 @@ public class SerkanOzsahin extends BaseDriver {
         WaitAndQuit();
     }
 
-    // Mesaj Kutusu Kontrolü
+    // Mesaj Kutusu Kontrolü :
 
     @Test
-    public void MesajKutuTest1() {
+    public void MesajKutuTest() {
 
         String eMail = "studyyytecho@gmail.com";
         String password = "123asdminiqqQQ";
@@ -363,14 +363,16 @@ public class SerkanOzsahin extends BaseDriver {
 
         WebElement mesajBtn = driver.findElement(By.xpath("//a[text()='Mesajlarım']"));
         mesajBtn.click();
+        MyFunc.Wait(1);
 
         WebElement mesajYok = driver.findElement(By.xpath("//p[text()='Listelenecek mesaj bulunamadı.']"));
         mesajYok.getText();
+        MyFunc.Wait(1);
 
-        Assert.assertTrue("Mesaj kutusu boş olmasına rağmen listelenecek mesaj bulunamadı yazısı gelmedi. Test FAILED.", mesajYok.getText().contains(noMsg));
+        Assert.assertTrue("Mesaj kutusu boş olmasına rağmen listelenecek mesaj bulunamadı yazısı ekrana gelmedi. Test FAILED.", mesajYok.getText().contains(noMsg));
 
-        System.out.println("\u001B[94mMesajKutuTest1 = \u001B[0m" + "\u001B[32m" + "Sisteme başarıyla giriş yapıldı." + "\u001B[0m");
-        System.out.println("\u001B[94mMesajKutuTest1 = \u001B[0m" + "\u001B[32m" + "Ekrana listelenecek mesaj bulunamadı yazısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mMesajKutuTest = \u001B[0m" + "\u001B[32m" + "Sisteme başarıyla giriş yapıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mMesajKutuTest = \u001B[0m" + "\u001B[32m" + "Ekrana listelenecek mesaj bulunamadı yazısı geldi." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
