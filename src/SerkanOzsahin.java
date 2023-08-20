@@ -9,7 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 
 public class SerkanOzsahin extends BaseDriver {
 
-    // Oturum Açma Test Method'ları.
+    // Oturum Açma ve Mesaj Kutusu Kontrolü Test Method'ları.
+
+    // Oturum Açma
 
     @Test
     public void LoginTestPositive() {
@@ -314,6 +316,61 @@ public class SerkanOzsahin extends BaseDriver {
         System.out.println("\u001B[94mLoginTestNull3 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı doğru girildi, şifre boş bırakıldı." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNull3 = \u001B[0m" + "\u001B[32m" + "Ekrana lütfen şifrenizi yazın uyarısı geldi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNull3 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
+
+        WaitAndQuit();
+    }
+
+    // Mesaj Kutusu Kontrolü
+
+    @Test
+    public void MesajKutuTest1() {
+
+        String eMail = "studyyytecho@gmail.com";
+        String password = "123asdminiqqQQ";
+        String noMsg = "Listelenecek mesaj bulunamadı.";
+
+        driver.get("https://www.akakce.com/");
+        MyFunc.Wait(1);
+
+        WebElement logInBtn = driver.findElement(By.xpath("(//a[text()='Giriş Yap'])[1]"));
+        logInBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement eMailLogIn = driver.findElement(By.xpath("(//input[@type='email'])[2]"));
+        eMailLogIn.sendKeys(eMail);
+        MyFunc.Wait(1);
+
+        WebElement passwordLogIn = driver.findElement(By.xpath("(//input[@type='password'])[1]"));
+        passwordLogIn.sendKeys(password);
+        MyFunc.Wait(1);
+
+        WebElement submitBtn = driver.findElement(By.xpath("//input[@type='submit' and @value='Giriş yap']"));
+        submitBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement myProfile = driver.findElement(By.xpath("//a[@title='Hesabım']"));
+        MyFunc.Wait(1);
+
+        Actions action = new Actions(driver);
+        Action action1 = action.moveToElement(myProfile).build();
+        action1.perform();
+        MyFunc.Wait(1);
+
+        WebElement myAcc = driver.findElement(By.xpath("//a[text()='Hesabım']"));
+        myAcc.click();
+        MyFunc.Wait(1);
+
+        WebElement mesajBtn = driver.findElement(By.xpath("//a[text()='Mesajlarım']"));
+        mesajBtn.click();
+
+        WebElement mesajYok = driver.findElement(By.xpath("//p[text()='Listelenecek mesaj bulunamadı.']"));
+        mesajYok.getText();
+
+        Assert.assertTrue("Mesaj kutusu boş olmasına rağmen listelenecek mesaj bulunamadı yazısı gelmedi. Test FAILED.", mesajYok.getText().contains(noMsg));
+
+        System.out.println("\u001B[94mMesajKutuTest1 = \u001B[0m" + "\u001B[32m" + "Sisteme başarıyla giriş yapıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mMesajKutuTest1 = \u001B[0m" + "\u001B[32m" + "Ekrana listelenecek mesaj bulunamadı yazısı geldi." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
