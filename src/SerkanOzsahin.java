@@ -54,7 +54,7 @@ public class SerkanOzsahin extends BaseDriver {
         currentEmail.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue("Current email ile, girilen email uyumlu değil. Test FAILED", currentEmail.getText().contains(eMail));
+        Assert.assertTrue("Mevcut e-mail ile, girilen e-mail uyumlu değil. Test FAILED", currentEmail.getText().contains(eMail));
 
         WebElement myProfile2 = driver.findElement(By.xpath("//a[@title='Hesabım']"));
         MyFunc.Wait(1);
@@ -69,7 +69,7 @@ public class SerkanOzsahin extends BaseDriver {
         MyFunc.Wait(1);
 
         System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre doğru girildi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Current email ile, girilen email uyumlu." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Mevcut e-mail ile, girilen e-mail uyumlu." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Sisteme başarılı bir şekilde giriş yapıldı." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestPositive = \u001B[0m" + "\u001B[32m" + "Sistemden başarılı bir şekilde çıkış yapıldı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
@@ -190,7 +190,7 @@ public class SerkanOzsahin extends BaseDriver {
         Assert.assertTrue("Kullanıcı adı yanlış, şifre doğru girilmesine rağmen sisteme giriş yapıldı. Test FAILED", error.getText().contains(hataliId));
 
         System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı yanlış, şifre doğru girildi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Ekrana böyle bir kullanıcı yok yazısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Ekrana böyle bir kullanıcı yok uyarısı geldi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNegative3 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
@@ -230,7 +230,7 @@ public class SerkanOzsahin extends BaseDriver {
         Assert.assertTrue("Kullanıcı adı ve şifre boş bırakılmasına rağmen sisteme giriş yapıldı. Test FAILED", error2.getText().contains(bosEmail));
 
         System.out.println("\u001B[94mLoginTestNull1 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı ve şifre boş bırakıldı." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNull1 = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull1 = \u001B[0m" + "\u001B[32m" + "Ekrana lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNull1 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
@@ -270,7 +270,7 @@ public class SerkanOzsahin extends BaseDriver {
         Assert.assertTrue("Kullanıcı adı boş bırakılmasına rağmen sisteme giriş yapıldı. Test FAILED", error2.getText().contains(bosEmail));
 
         System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı boş bırakıldı, şifre doğru girildi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Ekrana lütfen e-posta adresinizi yazın uyarısı geldi." + "\u001B[0m");
         System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
@@ -307,11 +307,11 @@ public class SerkanOzsahin extends BaseDriver {
         error2.getText();
         MyFunc.Wait(1);
 
-        Assert.assertTrue("Kullanıcı adı boş bırakılmasına rağmen sisteme giriş yapıldı. Test FAILED", error2.getText().contains(bosEmail));
+        Assert.assertTrue("Şifre boş bırakılmasına rağmen sisteme giriş yapıldı. Test FAILED", error2.getText().contains(bosEmail));
 
-        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı doğru girildi, şifre boş bırakıldı." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Ekrana Lütfen şifrenizi yazın uyarısı geldi." + "\u001B[0m");
-        System.out.println("\u001B[94mLoginTestNull2 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull3 = \u001B[0m" + "\u001B[32m" + "Kullanıcı adı doğru girildi, şifre boş bırakıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull3 = \u001B[0m" + "\u001B[32m" + "Ekrana lütfen şifrenizi yazın uyarısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[94mLoginTestNull3 = \u001B[0m" + "\u001B[32m" + "Sisteme giriş yapılamadı." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
