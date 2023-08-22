@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class SerkanSengul extends BaseDriver {
     @Test
     public void HesapDogrulamaKontrol() {
@@ -169,7 +171,45 @@ public class SerkanSengul extends BaseDriver {
         System.out.println("Liste tekrardan boş olarak gözüküyor");
 
         WaitAndQuit();
-//bitmiş hali
+
 
     }
+
+    @Test
+    public void BaskaSiteyeGitme() {
+
+
+        driver.get("https://www.akakce.com/");
+        WebElement Girisyap = driver.findElement(By.xpath("//*[@href='/akakcem/giris/'][1]"));
+        Girisyap.click();
+        MyFunc.Wait(1);
+
+        WebElement Email = driver.findElement(By.xpath("(//*[@type='email'])[2]"));
+        Email.sendKeys("TechnoStudyTeam_3@gmail.com");
+        MyFunc.Wait(1);
+
+        WebElement Password = driver.findElement(By.xpath("(//*[@type='password'])[1]"));
+        Password.sendKeys("KOBE21tmac");
+        MyFunc.Wait(1);
+
+        WebElement girisyap2 = driver.findElement(By.xpath("(//*[@type='submit'])[2]"));
+        girisyap2.click();
+        MyFunc.Wait(1);
+
+        WebElement urun = driver.findElement(By.xpath("(//img[@alt='Xiaomi Mi TV Stick " +
+                "4K Dolby Chromecast Android TV Medya Oynatıcı'])[1]"));
+        urun.click();
+        MyFunc.Wait(1);
+
+
+        WebElement urunegit = driver.findElement(By.xpath("(//span[@class='bt_v8']/*)[1]"));
+        urunegit.click();
+        MyFunc.Wait(2);
+
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("xiaomi"));
+        System.out.println("Yeni sitede ürün gözüküyor");
+
+    }
+
 }
