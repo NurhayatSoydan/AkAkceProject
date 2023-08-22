@@ -1,5 +1,6 @@
 import Utility.BaseDriver;
 import Utility.MyFunc;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ import java.time.Duration;
 
 public class irem extends BaseDriver {
      @Test
-             public void HesapAcmaKapatma(){
+             public void HesapAcma(){
 
 
 
@@ -80,40 +81,88 @@ public class irem extends BaseDriver {
         kpy.click();
         MyFunc.Wait(2);
 
+         WaitAndQuit();
 
 
-       WebElement ire=driver.findElement(By.xpath("(//a[text()='İrem'])"));
-       ire.click();
+
+}
+   @Test
+    public void HesapSilme(){
+         String silmekontrol="Hesabın silindi.";
+       driver.get("https://www.akakce.com/");
+       WebElement giris= driver.findElement(By.xpath("(//a[text()='Giriş Yap'])[1]"));
+       giris.click();
        MyFunc.Wait(2);
+
+
+
+
+
+       WebElement ML=driver.findElement(By.cssSelector("input[class='t'][name='life']"));
+       ML.sendKeys("iremt8202@gmail.com");
+       MyFunc.Wait(2);
+
+       WebElement SFR= driver.findElement(By.xpath("(//input[@type='password'])[1]"));
+       SFR.sendKeys("gtfeggh123AB");
+       MyFunc.Wait(2);
+
+
+
+
+        WebElement Giris= driver.findElement(By.xpath("(//input[@type='submit'])[2]"));
+        Giris.click();
+        MyFunc.Wait(2);
+
+        WebElement hsp=driver.findElement(By.cssSelector("a[title='Hesabım']"));
+        hsp.click();
+        MyFunc.Wait(2);
+
+
+
+
+      WebElement HESAP= driver.findElement(By.xpath("//a[text()='Hesabım']"));
+      HESAP.click();
+      MyFunc.Wait(2);
+
+
 
        WebElement sil=driver.findElement(By.xpath("(//a[text()='Hesabımı Sil'])"));
        sil.click();
        MyFunc.Wait(2);
 
-       WebElement sifr=driver.findElement(By.cssSelector("input[class='t']"));
-       sifr.sendKeys("gtfeggh123AB");
+       WebElement sfr= driver.findElement(By.cssSelector("input[type='password']"));
+       sfr.sendKeys("gtfeggh123AB");
        MyFunc.Wait(2);
 
-       WebElement hsb=driver.findElement(By.cssSelector("input[type='submit']"));
-       hsb.click();
-       MyFunc.Wait(2);
+       WebElement hsbsil= driver.findElement(By.cssSelector("input[value='Hesabımı sil']"));
+       hsbsil.click();
 
-       WaitAndQuit();
-
-}
+       WebElement silindi= driver.findElement(By.xpath("//*[text()='Hesabın silindi.']"));
+       Assert.assertTrue(silindi.getText().contains(silmekontrol));
 
 
+     WaitAndQuit();
 
 
-
-
+   }
 
 
 
 
 
 
+       }
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
