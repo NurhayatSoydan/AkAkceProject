@@ -1,3 +1,4 @@
+import Utility.BaseDriver;
 import Utility.MyFunc;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -7,23 +8,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class irem {
+public class irem extends BaseDriver {
+     @Test
+             public void HesapAcmaKapatma(){
 
-    public static void main(String[] args) {
-    WebDriver driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+
+
+
 
         driver.get("https://www.akakce.com/");
+        WebElement hesap=driver.findElement(By.xpath("(//a[text()='Hesap Aç'])[1]"));
+        hesap.click();
+        MyFunc.Wait(2);
+
        WebElement ad = driver.findElement(By.xpath("//input[@id='rnufn']"));
         ad.sendKeys("irem");
-        ad.click();
+
         MyFunc.Wait(2);
 
     WebElement soyad = driver.findElement(By.xpath("//input[@name='rnufs']"));
         soyad.sendKeys("torun");
-        soyad.click();
+
         MyFunc.Wait(2);
 
     WebElement mail = driver.findElement(By.xpath("//input[@name='rnufe1']"));
@@ -51,7 +57,7 @@ public class irem {
         MyFunc.Wait(2);
 
     WebElement ilce = driver.findElement(By.cssSelector("select[class='s'][name='locds']"));
-        ilce.sendKeys("Cankaya");
+        ilce.sendKeys("Çankaya");
         MyFunc.Wait(2);
 
     WebElement gun = driver.findElement(By.xpath("//select[@class='t' and @name='bd']"));
@@ -76,10 +82,23 @@ public class irem {
 
 
 
+       WebElement ire=driver.findElement(By.xpath("(//a[text()='İrem'])"));
+       ire.click();
+       MyFunc.Wait(2);
 
+       WebElement sil=driver.findElement(By.xpath("(//a[text()='Hesabımı Sil'])"));
+       sil.click();
+       MyFunc.Wait(2);
 
+       WebElement sifr=driver.findElement(By.cssSelector("input[class='t']"));
+       sifr.sendKeys("gtfeggh123AB");
+       MyFunc.Wait(2);
 
+       WebElement hsb=driver.findElement(By.cssSelector("input[type='submit']"));
+       hsb.click();
+       MyFunc.Wait(2);
 
+       WaitAndQuit();
 
 }
 
