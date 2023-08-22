@@ -1,5 +1,6 @@
 import Utility.BaseDriver;
 import Utility.MyFunc;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -210,6 +211,39 @@ public class SerkanSengul extends BaseDriver {
         Assert.assertTrue(driver.getCurrentUrl().contains("xiaomi"));
         System.out.println("Yeni sitede ürün gözüküyor");
 
+        WaitAndQuit();
     }
 
+    @Test
+    public void EnTakipedilenurunleriGorebilme_1Sayfa_() {
+        driver.get("https://www.akakce.com/");
+        WebElement Girisyap = driver.findElement(By.xpath("//*[@href='/akakcem/giris/'][1]"));
+        Girisyap.click();
+        MyFunc.Wait(1);
+
+        WebElement Email = driver.findElement(By.xpath("(//*[@type='email'])[2]"));
+        Email.sendKeys("TechnoStudyTeam_3@gmail.com");
+        MyFunc.Wait(1);
+
+        WebElement Password = driver.findElement(By.xpath("(//*[@type='password'])[1]"));
+        Password.sendKeys("KOBE21tmac");
+        MyFunc.Wait(1);
+
+        WebElement girisyap2 = driver.findElement(By.xpath("(//*[@type='submit'])[2]"));
+        girisyap2.click();
+        MyFunc.Wait(1);
+
+        WebElement urunleregit = driver.findElement(By.xpath("(//img[@src='//cdn.akakce.com/t.gif'])[4]"));
+        urunleregit.click();
+        MyFunc.Wait(1);
+
+        List<WebElement> urunler = driver.findElements(By.cssSelector("[class='pl_v9 gv_v9']"));
+        for (WebElement s : urunler) {
+            System.out.println(s.getText());
+        }
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("en-cok"));
+
+        WaitAndQuit();
+    }
 }
