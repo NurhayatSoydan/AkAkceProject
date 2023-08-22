@@ -3,13 +3,14 @@ import Utility.MyFunc;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 public class SerkanOzsahin extends BaseDriver {
 
-    // Oturum Açma ve Mesaj Kutusu Kontrolü Test Method'ları :
+    // Oturum Açma, Mesaj Kutusu Kontrolü, SearchBox Test Method'ları :
 
     // Oturum Açma :
 
@@ -373,6 +374,34 @@ public class SerkanOzsahin extends BaseDriver {
 
         System.out.println("\u001B[94mMesajKutuTest = \u001B[0m" + "\u001B[32m" + "Sisteme başarıyla giriş yapıldı." + "\u001B[0m");
         System.out.println("\u001B[94mMesajKutuTest = \u001B[0m" + "\u001B[32m" + "Ekrana listelenecek mesaj bulunamadı yazısı geldi." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
+
+        WaitAndQuit();
+    }
+
+    // SearchBox :
+
+    @Test
+    public void SearchBoxTest1() {
+
+        String keyWord = "laptop";
+
+        driver.get("https://www.akakce.com/");
+        MyFunc.Wait(1);
+
+        WebElement searchBox = driver.findElement(By.xpath("//input[@type='text']"));
+        MyFunc.Wait(1);
+
+        new Actions(driver).moveToElement(searchBox).click().sendKeys(keyWord).sendKeys(Keys.ENTER).build().perform();
+        MyFunc.Wait(1);
+
+        String gidilenUrl = driver.getCurrentUrl();
+        MyFunc.Wait(1);
+
+        Assert.assertTrue("Anahtar kelime, gidilen URL'de bulunamadı. Test FAILED.", gidilenUrl.contains(keyWord));
+
+        System.out.println("\u001B[94mSearchBoxTest1 = \u001B[0m" + "\u001B[32m" + "Anahtar kelime searchbox'a yazıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mSearchBoxTest1 = \u001B[0m" + "\u001B[32m" + "Yazılan anahtar kelime ile ilgili ürünler başarıyla listelendi." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
