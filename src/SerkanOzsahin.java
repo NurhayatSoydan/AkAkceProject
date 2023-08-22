@@ -382,7 +382,7 @@ public class SerkanOzsahin extends BaseDriver {
     // SearchBox :
 
     @Test
-    public void SearchBoxTest1() {
+    public void SearchBoxTest() {
 
         String keyWord = "laptop";
 
@@ -400,8 +400,8 @@ public class SerkanOzsahin extends BaseDriver {
 
         Assert.assertTrue("Anahtar kelime, gidilen URL'de bulunamadı. Test FAILED.", gidilenUrl.contains(keyWord));
 
-        System.out.println("\u001B[94mSearchBoxTest1 = \u001B[0m" + "\u001B[32m" + "Anahtar kelime searchbox'a yazıldı." + "\u001B[0m");
-        System.out.println("\u001B[94mSearchBoxTest1 = \u001B[0m" + "\u001B[32m" + "Yazılan anahtar kelime ile ilgili ürünler başarıyla listelendi." + "\u001B[0m");
+        System.out.println("\u001B[94mSearchBoxTest = \u001B[0m" + "\u001B[32m" + "Anahtar kelime searchbox'a yazıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mSearchBoxTest = \u001B[0m" + "\u001B[32m" + "Yazılan anahtar kelime ile ilgili ürünler başarıyla listelendi." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
