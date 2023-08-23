@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class SerkanOzsahin extends BaseDriver {
 
-    // Oturum Açma, Mesaj Kutusu Kontrolü, SearchBox Test Method'ları :
+    // Oturum Açma, Mesaj Kutusu Kontrolü, SearchBox, Oturum Kapatma Test Method'ları :
 
     // Oturum Açma :
 
@@ -402,6 +402,57 @@ public class SerkanOzsahin extends BaseDriver {
 
         System.out.println("\u001B[94mSearchBoxTest = \u001B[0m" + "\u001B[32m" + "Anahtar kelime searchbox'a yazıldı." + "\u001B[0m");
         System.out.println("\u001B[94mSearchBoxTest = \u001B[0m" + "\u001B[32m" + "Yazılan anahtar kelime ile ilgili ürünler başarıyla listelendi." + "\u001B[0m");
+        System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
+
+        WaitAndQuit();
+    }
+
+    // Oturum Kapatma :
+
+    @Test
+    public void LogOutTest() {
+
+        String eMail = "studyyytecho@gmail.com";
+        String password = "123asdminiqqQQ";
+
+        driver.get("https://www.akakce.com/");
+        MyFunc.Wait(1);
+
+        WebElement logInBtn = driver.findElement(By.xpath("(//a[text()='Giriş Yap'])[1]"));
+        logInBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement eMailLogIn = driver.findElement(By.xpath("(//input[@type='email'])[2]"));
+        eMailLogIn.sendKeys(eMail);
+        MyFunc.Wait(1);
+
+        WebElement passwordLogIn = driver.findElement(By.xpath("(//input[@type='password'])[1]"));
+        passwordLogIn.sendKeys(password);
+        MyFunc.Wait(1);
+
+        WebElement submitBtn = driver.findElement(By.xpath("//input[@type='submit' and @value='Giriş yap']"));
+        submitBtn.click();
+        MyFunc.Wait(1);
+
+        WebElement myProfile = driver.findElement(By.xpath("//a[@title='Hesabım']"));
+        MyFunc.Wait(1);
+
+        Actions action = new Actions(driver);
+        Action action1 = action.moveToElement(myProfile).build();
+        action1.perform();
+        MyFunc.Wait(1);
+
+        WebElement myAcc = driver.findElement(By.xpath("//a[text()='Çık']"));
+        myAcc.click();
+        MyFunc.Wait(1);
+
+        WebElement logInBtn2 = driver.findElement(By.xpath("(//a[text()='Giriş Yap'])[1]"));
+
+        Assert.assertTrue("Hesaptan Çık'a tıklanmasına rağmen hesaptan çıkılmadı. Test FAILED.", logInBtn2.isDisplayed());
+
+        System.out.println("\u001B[94mLogOutTest = \u001B[0m" + "\u001B[32m" + "Sisteme başarılı bir şekilde giriş yapıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mLogOutTest = \u001B[0m" + "\u001B[32m" + "Sistemden başarılı bir şekilde çıkış yapıldı." + "\u001B[0m");
+        System.out.println("\u001B[94mLogOutTest = \u001B[0m" + "\u001B[32m" + "Giriş yap button'u tekrar gözüktü." + "\u001B[0m");
         System.out.println("\u001B[32m" + "Test PASSED" + "\u001B[0m");
 
         WaitAndQuit();
